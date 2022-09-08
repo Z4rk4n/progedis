@@ -4,8 +4,10 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
+  'myApp.asteroid',
   'myApp.navBar',
   'myApp.asteroidList',
+  'myApp.asteroidDetails',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

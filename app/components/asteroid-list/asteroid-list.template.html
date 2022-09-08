@@ -1,29 +1,33 @@
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
-</table>
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+    <input type="text"
+           class="form-control"
+           placeholder="search"
+           aria-label="search"
+           aria-describedby="basic-addon1"
+           ng-model="$ctrl.query">
+</div>
+
+<div ng-repeat="(key, asteroids) in $ctrl.asteroids.near_earth_objects" class="margin-top-20">
+    <h2 class="h2"><span class="badge bg-success">{{ key }}</span></h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">diameter min ( meters )</th>
+            <th scope="col">diameter max ( meters )</th>
+            <th scope="col">explore</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="asteroid in asteroids | filter:$ctrl.query">
+                <th scope="row">{{ asteroid.id }}</th>
+                <td>{{ asteroid.name }}</td>
+                <td>{{ asteroid.estimated_diameter.meters.estimated_diameter_min }}</td>
+                <td>{{ asteroid.estimated_diameter.meters.estimated_diameter_max }}</td>
+                <td><a href="{{ '#/asteroid/' +  asteroid.id }}" class="btn btn-success"><i class="fa fa-eye"></i> </a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
