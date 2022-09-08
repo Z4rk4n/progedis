@@ -11,4 +11,6 @@ angular.module('myApp.home', ['ngRoute'])
 
     .controller('HomeCtrl', [function () {
 
+        var self = this;
+
     }]);
