@@ -12,6 +12,7 @@ angular.module('myApp.asteroid', ['ngRoute'])
     .controller('AsteroidCtrl', ['$routeParams', function ($routeParams) {
 
         var self = this;
-        self.asteroidId = $routeParams.asteroidId;
+
+        self.x = 1;
 
     }]);
