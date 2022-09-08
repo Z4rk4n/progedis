@@ -9,10 +9,13 @@ angular.module('myApp.asteroid', ['ngRoute'])
         });
     }])
 
-    .controller('AsteroidCtrl', ['$routeParams', function ($routeParams) {
+    .controller('AsteroidCtrl', ['$routeParams', '$scope', '$http', function ($routeParams, $scope, $http) {
 
         var self = this;
-
-        self.x = 1;
-
+        var asteroidId = $routeParams.asteroidId;
+        // https://api.nasa.gov/neo/rest/v1/neo/3426410?api_key=dBEvnzy2ahbk8oRYPtPoCflKSaaNou4ZLilfugRp       
+        $http.get('https://api.nasa.gov/neo/rest/v1/neo/' + asteroidId + '?api_key=dBEvnzy2ahbk8oRYPtPoCflKSaaNou4ZLilfugRp').then(function(response) {
+            $scope.asteroidTechnicalSheet = response.data;
+            console.log($scope.asteroidTechnicalSheet);
+        });
     }]);

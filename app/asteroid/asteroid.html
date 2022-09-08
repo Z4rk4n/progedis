@@ -1,5 +1,35 @@
 <div class="row">
     <div class="col col-md-12">
-        {{ x }}aa
+        <h1 class="h1">Asteroid - {{ asteroidTechnicalSheet.name }}</h1>
     </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">label</th>
+            <th scope="col">value</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>id</td>
+                <td>{{ asteroidTechnicalSheet.id }}</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>{{ asteroidTechnicalSheet.name }}</td>
+            </tr>
+            <tr>
+                <td>link</td>
+                <td><a href="{{ asteroidTechnicalSheet.links.self }}">{{ asteroidTechnicalSheet.links.self }}</a></td>
+            </tr>
+            <tr>
+                <td>designation</td>
+                <td>{{ asteroidTechnicalSheet.designation }}</td>
+            </tr>
+        </tbody>
+    </table>
+        
+    
+    
 </div>
